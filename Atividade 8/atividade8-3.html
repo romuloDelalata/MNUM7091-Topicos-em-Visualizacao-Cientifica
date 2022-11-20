@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene shadow="type: pcfsoft">
+        <a-assets>
+          <img id="ceu" src="./equiretangular2.png"></img>
+          <a-asset-item id="estatua" src="estatua.glb"></a-asset-item>
+          </a-assets>
+          <a-sky src="#ceu"></a-sky>
+          <a-camera look-controls="reverseMouseDrag: true"></a-camera>
+          <a-cylinder position="1.5 -3 5" radius="2.3" height="0.1" color="#BEBEBE" shadow="receive: true"></a-cylinder>
+          <a-entity id="estatua2" gltf-model="#estatua" position="1.5 -2 4" scale="5 5 5" shadow="cast: true"
+            animation="property: rotation; to: 0 360 0; loop: true; easing: linear; dur: 6000;">
+          </a-entity>
+          <a-light type="spot" intensity="1" light="castShadow:true" angle="45" decay="2"
+             target="#estatua2" position="1.5 15 4"></a-light>
+    </a-scene>
+  </body>
+</html>
